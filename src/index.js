@@ -1,4 +1,5 @@
-import { sayHelloWorld } from "./home";
+import { generateNavbar } from "./page-elements";
+import { NAVBAR_ITEMS } from "./parameters";
 import "./style.css";
 
 
@@ -9,5 +10,5 @@ import "./style.css";
 
     const body = document.body;
 
-    body.appendChild(sayHelloWorld());
+    body.appendChild(generateNavbar(NAVBAR_ITEMS));
 })();

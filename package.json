@@ -1,7 +1,7 @@
 {
-    "name": "template-webpack",
+    "name": "top-dynamic-user-interface-interactions",
     "version": "1.0.0",
-    "description": "Repo template that includes webpack",
+    "description": "General techniques that are used by JavaScript programmers everyday.",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,10 +10,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/nico9506/"
+        "url": "https://github.com/nico9506/TOP-dynamic-user-interface-interactions"
     },
     "keywords": [
-        "",
+        "drop-down",
+        "mobile",
+        "slides",
         "Odin",
         "TOP"
     ],

@@ -6,7 +6,7 @@ module.exports = {
     devtool: 'inline-source-map',
     plugins: [
         new HtmlWebpackPlugin({
-            title: "Webpack template",
+            title: "TOP: Dynamic User Interface Interactions",
             favicon: 'src/assets/favicon.ico',
         }),
     ],
