@@ -24,7 +24,7 @@
 
     /* Elements height */
     --navbar-h: 3.8rem;
-    --side-panel-length: 15rem;
+    --side-panel-length: 0;
     --content-h: calc(
         100vh - var(--navbar-h) - var(--footer-h) - var(--side-panel-length)
     );
@@ -32,7 +32,8 @@
 
     /* Font size */
     --logo-fs: 1.3rem;
-    --navbar-fs: 1rem;
+    --navbar-fs: 1.6rem;
+    --icon-navbar-fs: 3rem;
     --header-fs: 1.8rem;
     --subheader-fs: 1.4rem;
     --subheader-sm-fs: 1.3rem;
@@ -50,9 +51,98 @@
     color: var(--ct-darker);
 }
 
-/* --------------------- Section -------------------- */
-/* --------------------- Section -------------------- */
-/* --------------------- Section -------------------- */
+body {
+    background-color: var(--ct-light);
+    display: grid;
+    grid-template:
+        var(--navbar-h) var(--content-h) var(--footer-h)
+        / 1fr;
+    grid-template-areas:
+        "navbar"
+        "main-content"
+        "footer";
+}
+
+.hidden {
+    display: none;
+}
+
+/* --------------------- Navbar -------------------- */
+nav {
+    grid-area: navbar;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--ct-darker);
+    height: var(--navbar-h);
+    max-height: var(--navbar-h);
+}
+
+.main-item-navbar {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.main-logo {
+    height: var(--icon-navbar-fs);
+}
+
+.main-logo-text {
+    font-size: var(--navbar-fs);
+    margin-left: 1rem;
+    text-transform: capitalize;
+    color: var(--ct-light);
+}
+
+.menu-container {
+    display: flex;
+    text-align: end;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* justify-content: flex-end;
+    align-items: flex-start; */
+}
+
+#dropdown_menu {
+    width: var(--icon-navbar-fs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0 none;
+    background-color: var(--ct-dark);
+    text-align: right;
+}
+
+#dropdown_menu:hover {
+    background-color: var(--ct-numix);
+    cursor: pointer;
+}
+
+.dropdown-icon {
+    filter: var(--filter-light);
+}
+
+.dropdown-icon:hover {
+    filter: none;
+}
+
+.entries-menu > div {
+    color: var(--ct-light);
+}
+/* --------------------- Main panel -------------------- */
+main {
+    grid-area: main-content;
+}
+
+
+/* --------------------- Footer -------------------- */
+footer {
+    grid-area: footer;
+}
+
 /* --------------------- Section -------------------- */
 
 /* Extra small devices (phones, 600px and down) */

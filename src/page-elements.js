@@ -44,21 +44,25 @@ export function generateNavbar(NAVBAR_ITEMS) {
     //Contains the other menu items, hidden by default (mobile view)
     const menuContainer = document.createElement("div");
     menuContainer.classList.add("menu-container");
-    menuContainer.classList.add("hidden");
 
-    const dropdownIcon = document.createElement('button');
-    dropdownIcon.id = 'dropdown_menu';
-    
+    const dropdownIcon = document.createElement("button");
+    dropdownIcon.id = "dropdown_menu";
+
     const icon = new Image();
     icon.src = burgerIcon;
-    icon.classList.add('dropdown-icon');
+    icon.classList.add("dropdown-icon");
     dropdownIcon.appendChild(icon);
 
     menuContainer.appendChild(dropdownIcon);
 
+    const entriesContainer = document.createElement("div");
+    entriesContainer.id = "entries_menu";
+    entriesContainer.classList.add("entries-menu");
+    entriesContainer.classList.add("hidden");
+
     if (NAVBAR_ITEMS.ITEMS.menus) {
         for (let i = 0; i < Object.keys(NAVBAR_ITEMS.ITEMS.menus).length; i++) {
-            menuContainer.appendChild(
+            entriesContainer.appendChild(
                 generateMenuEntries(
                     NAVBAR_ITEMS.ITEMS.menus[
                         Object.keys(NAVBAR_ITEMS.ITEMS.menus)[i]
@@ -68,7 +72,7 @@ export function generateNavbar(NAVBAR_ITEMS) {
         }
     }
 
-
+    menuContainer.appendChild(entriesContainer);
 
     navbar.appendChild(menuContainer);
 
@@ -78,7 +82,7 @@ export function generateNavbar(NAVBAR_ITEMS) {
 function generateMenuEntries(itemObject) {
     /**
      * @param {Object} itemObject - menu entries
-     * @returns {Element} HTML container (div) with the menu and sub menu entries 
+     * @returns {Element} HTML container (div) with the menu and sub menu entries
      */
 
     const container = document.createElement("div");
@@ -89,7 +93,7 @@ function generateMenuEntries(itemObject) {
     if (itemObject.submenus) {
         const subContainer = document.createElement("div");
 
-        subContainer.classList.add("hide");
+        subContainer.classList.add("hidden");
 
         for (let i = 0; i < Object.keys(itemObject.submenus).length; i++) {
             subContainer.appendChild(
@@ -98,9 +102,26 @@ function generateMenuEntries(itemObject) {
                 )
             );
         }
+        container.addEventListener("click", () =>
+            container.classList.toggle("hidden")
+        );
 
         container.appendChild(subContainer);
     }
+
+    return container;
+}
+
+export function generateMainPanel() {
+    const container = document.createElement("main");
+    // container.classList.add('main-container');
+
+    return container;
+}
+
+export function generateFooter() {
+    const container = document.createElement("footer");
+    // container.classList.add('footer');
 
     return container;
 }
