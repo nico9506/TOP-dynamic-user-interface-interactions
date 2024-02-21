@@ -7,6 +7,9 @@
  *  - Drop-down menus
  */
 
+import logo from "./assets/main-logo.png";
+import burgerIcon from "./assets/main-dropdown.svg";
+
 export function generateNavbar(NAVBAR_ITEMS) {
     /**
      * Creates a navbar element with a logo and menu items.
@@ -27,7 +30,7 @@ export function generateNavbar(NAVBAR_ITEMS) {
     mainItemContainer.id = NAVBAR_ITEMS.ITEMS.mainEntry.id;
 
     const mainLogo = new Image();
-    mainLogo.src = NAVBAR_ITEMS.MAIN_LOGO_PATH;
+    mainLogo.src = logo;
     mainLogo.classList.add("main-logo");
     mainItemContainer.appendChild(mainLogo);
 
@@ -41,21 +44,20 @@ export function generateNavbar(NAVBAR_ITEMS) {
     //Contains the other menu items, hidden by default (mobile view)
     const menuContainer = document.createElement("div");
     menuContainer.classList.add("menu-container");
-    menuContainer.classList.add("hide");
+    menuContainer.classList.add("hidden");
+
+    const dropdownIcon = document.createElement('button');
+    dropdownIcon.id = 'dropdown_menu';
+    
+    const icon = new Image();
+    icon.src = burgerIcon;
+    icon.classList.add('dropdown-icon');
+    dropdownIcon.appendChild(icon);
+
+    menuContainer.appendChild(dropdownIcon);
 
     if (NAVBAR_ITEMS.ITEMS.menus) {
         for (let i = 0; i < Object.keys(NAVBAR_ITEMS.ITEMS.menus).length; i++) {
-            // console.log(
-            //     NAVBAR_ITEMS.ITEMS.menus[
-            //         Object.keys(NAVBAR_ITEMS.ITEMS.menus)[i]
-            //     ]
-            // );
-            // console.log(
-            //     "type of: " +
-            //         typeof NAVBAR_ITEMS.ITEMS.menus[
-            //             Object.keys(NAVBAR_ITEMS.ITEMS.menus)[i]
-            //         ]
-            // );
             menuContainer.appendChild(
                 generateMenuEntries(
                     NAVBAR_ITEMS.ITEMS.menus[
@@ -66,12 +68,19 @@ export function generateNavbar(NAVBAR_ITEMS) {
         }
     }
 
+
+
     navbar.appendChild(menuContainer);
 
     return navbar;
 }
 
 function generateMenuEntries(itemObject) {
+    /**
+     * @param {Object} itemObject - menu entries
+     * @returns {Element} HTML container (div) with the menu and sub menu entries 
+     */
+
     const container = document.createElement("div");
 
     container.textContent = itemObject.name;

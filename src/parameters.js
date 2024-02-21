@@ -15,7 +15,7 @@ export const NAVBAR_ITEMS = {
      *
      * menu IDs must be unique and use underscore '_' instead of space ' '.
      */
-    MAIN_LOGO_PATH: "./src/assets/main-logo.png",
+
     ITEMS: {
         mainEntry: {
             name: "home",
@@ -52,5 +52,4 @@ export const NAVBAR_ITEMS = {
             },
         },
     },
-    MAIN_DROP_DOWN_ICON_PATH: "./src/assets/main-dropdown.",
 };
