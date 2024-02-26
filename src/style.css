@@ -25,9 +25,7 @@
     /* Elements height */
     --navbar-h: 3.8rem;
     --side-panel-length: 0;
-    --content-h: calc(
-        100vh - var(--navbar-h) - var(--footer-h) - var(--side-panel-length)
-    );
+    --content-h: calc(100vh - var(--navbar-h) - var(--footer-h));
     --footer-h: 3rem;
 
     /* Font size */
@@ -157,6 +155,9 @@ nav {
 main {
     grid-area: main-content;
     height: var(--content-h);
+    margin: auto;
+    text-align: center;
+    padding-top: 2rem;
 }
 
 .fade {
@@ -168,16 +169,19 @@ main {
     display: none;
 }
 
-img {
+.mySlides > img {
     vertical-align: middle;
-    width: 100%;
+    width: min(100%, 900px);
 }
 
 /* Slideshow container */
 .slideshow-container {
-    max-width: 1000px;
+    width: 100%;
     position: relative;
-    margin: auto;
+    /* margin: auto; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Caption text */
@@ -196,8 +200,8 @@ img {
     color: #f2f2f2;
     font-size: 12px;
     padding: 8px 12px;
-    position: absolute;
-    top: 0;
+    position: relative;
+    top: 30px;
 }
 
 /* The dots/bullets/indicators */
