@@ -138,6 +138,7 @@ nav {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     right: 0;
     z-index: 1;
+animation: fadeIn 0.5s;
 }
 
 .entries-menu > div {
