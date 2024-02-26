@@ -11,6 +11,9 @@ import logo from "./assets/main-logo.png";
 import burgerIcon from "./assets/main-dropdown.svg";
 import { GITHUB_PARAMETERS } from "./parameters";
 import githubIcon from "./assets/github.svg";
+import cityView from "./assets/IMG_20230126_150543.jpg";
+import shrineOfRemembrance from "./assets/IMG_20230211_000741.jpg";
+import StPatrick from "./assets/IMG_20230413_165943.jpg";
 
 export function generateNavbar(NAVBAR_ITEMS) {
     /**
@@ -121,9 +124,72 @@ export function generateMainPanel() {
     const container = document.createElement("main");
     // container.classList.add('main-container');
 
-    container.textContent = "Main panel";
+    container.appendChild(generateSlideshow());
+    container.appendChild(generateDots(3));
 
     return container;
+}
+
+function generateSlideshow() {
+    /**
+     * @returns {Element} slideshow to display images
+     */
+
+    const container = document.createElement("div");
+    container.classList.add("slideshow-container");
+
+    container.appendChild(generateSlide("1/3", cityView, "Melbourne CBD"));
+    container.appendChild(
+        generateSlide("2/3", shrineOfRemembrance, "Shrine of Remembrance")
+    );
+    container.appendChild(
+        generateSlide("3/3", StPatrick, "St Patrick's Cathedral")
+    );
+
+    return container;
+}
+
+function generateDots(n) {
+    /**
+     * Returns n dots to mark the current slide
+     */
+    const container = document.createElement("div");
+    
+    for (let i = 0; i < n; i++) {
+        const dot = document.createElement("span");
+        dot.classList.add("dot");
+        container.appendChild(dot);
+    }
+
+    return container;
+}
+
+function generateSlide(number_text, img_source, caption) {
+    /**
+     * @param {String} number_text - img number x out of n. eg 2/5
+     * @param {String} img_source
+     * @param {String} caption - Img title - caption
+     * @returns {Element} HTML element to use as Slide
+     */
+
+    const slide = document.createElement("div");
+    slide.classList.add("mySlides", "fade");
+
+    const numbertext = document.createElement("div");
+    numbertext.classList.add("numbertext");
+    numbertext.textContent = number_text;
+    slide.appendChild(numbertext);
+
+    const picture = document.createElement("img");
+    picture.src = img_source;
+    slide.appendChild(picture);
+
+    const text = document.createElement("div");
+    text.classList.add("text");
+    text.textContent = caption;
+    slide.appendChild(text);
+
+    return slide;
 }
 
 export function generateFooter() {

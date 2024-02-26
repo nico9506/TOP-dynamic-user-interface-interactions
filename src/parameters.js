@@ -5,6 +5,8 @@
  *  -Static text content
  */
 
+export let slideIndex = 0;
+
 export const GITHUB_PARAMETERS = {
     GITHUB_USER: "nico9506",
     GITHUB_REPO_URL:
