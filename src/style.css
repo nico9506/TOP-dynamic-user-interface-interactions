@@ -155,14 +155,45 @@ nav {
 /* --------------------- Main panel -------------------- */
 main {
     grid-area: main-content;
+    height: var(--content-h);
 }
 
 /* --------------------- Footer -------------------- */
+/* --------------------- Footer -------------------- */
 footer {
     grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--ct-darker);
+}
+
+footer > .github-contact-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+footer > .github-contact-info > .footer-logo {
+    width: var(--logo-fs);
+    filter: var(--filter-numix);
+}
+
+footer > .github-contact-info > .github-user {
+    font-size: var(--logo-fs);
+    color: var(--ct-light);
+}
+
+footer > .github-contact-info > .github-user:hover {
+    color: var(--ct-numix);
 }
 
 /* --------------------- Section -------------------- */
+
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {

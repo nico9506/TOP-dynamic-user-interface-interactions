@@ -5,10 +5,16 @@
  *  -Static text content
  */
 
+export const GITHUB_PARAMETERS = {
+    GITHUB_USER: "nico9506",
+    GITHUB_REPO_URL:
+        "https://github.com/nico9506/TOP-dynamic-user-interface-interactions",
+};
+
 //List of menu items to be displayed in the navbar
 export const NAVBAR_ITEMS = {
     /**
-     * Use objects to create submenus
+     * Use objects to create submenus (not finished in generateMenuEntries(itemObject) from page-elements.js)
      *
      * 'mainEntry' is always shown, while 'menus' is mean to be
      * hide in the mobile view

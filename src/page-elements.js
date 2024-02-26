@@ -9,6 +9,8 @@
 
 import logo from "./assets/main-logo.png";
 import burgerIcon from "./assets/main-dropdown.svg";
+import { GITHUB_PARAMETERS } from "./parameters";
+import githubIcon from "./assets/github.svg";
 
 export function generateNavbar(NAVBAR_ITEMS) {
     /**
@@ -90,24 +92,27 @@ function generateMenuEntries(itemObject) {
     container.textContent = itemObject.name;
     container.id = itemObject.id;
 
-    if (itemObject.submenus) {
-        const subContainer = document.createElement("div");
+    /**
+     * Sub menus to finish later... when the cows come home...
+     */
+    // if (itemObject.submenus) {
+    //     const subContainer = document.createElement("div");
 
-        subContainer.classList.add("hidden");
+    //     subContainer.classList.add("hidden");
 
-        for (let i = 0; i < Object.keys(itemObject.submenus).length; i++) {
-            subContainer.appendChild(
-                generateMenuEntries(
-                    itemObject.submenus[Object.keys(itemObject.submenus)[i]]
-                )
-            );
-        }
-        container.addEventListener("click", () =>
-            container.classList.toggle("hidden")
-        );
+    //     for (let i = 0; i < Object.keys(itemObject.submenus).length; i++) {
+    //         subContainer.appendChild(
+    //             generateMenuEntries(
+    //                 itemObject.submenus[Object.keys(itemObject.submenus)[i]]
+    //             )
+    //         );
+    //     }
+    //     container.addEventListener("click", () => {
+    //         subContainer.classList.toggle("hidden");
+    //     });
 
-        container.appendChild(subContainer);
-    }
+    //     container.appendChild(subContainer);
+    // }
 
     return container;
 }
@@ -116,12 +121,36 @@ export function generateMainPanel() {
     const container = document.createElement("main");
     // container.classList.add('main-container');
 
+    container.textContent = "Main panel";
+
     return container;
 }
 
 export function generateFooter() {
-    const container = document.createElement("footer");
-    // container.classList.add('footer');
+    /**
+     * Creates the footer element and returns the HTML element
+     * @returns {Element} footer element
+     */
 
-    return container;
+    const footer = document.createElement("footer");
+
+    // DIV to keep together the GitHub logo and the username
+    const githubLink = document.createElement("a");
+    githubLink.classList.add("github-contact-info");
+    githubLink.href = GITHUB_PARAMETERS.GITHUB_REPO_URL;
+
+    const logo = new Image();
+    logo.src = githubIcon;
+    logo.classList.add("footer-logo");
+    githubLink.appendChild(logo);
+
+    const githubUser = document.createElement("h1");
+    githubUser.classList.add("github-user");
+    githubUser.id = "githubUser";
+    githubUser.textContent = GITHUB_PARAMETERS.GITHUB_USER;
+    githubLink.appendChild(githubUser);
+
+    footer.appendChild(githubLink);
+
+    return footer;
 }
